@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#loom-companion-mv3 {
+    display: none;
+}
+
+body {
+    background-color: #0c0d23;
+}
+
+section {
+    min-height: 100vh;
+    width: 100%;
+    padding: 32px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 936px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    min-height: 450px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    background-image: radial-gradient(ellipse 50% 80% at 20% 40%,rgba(93,52,221,0.1),rgba(255, 255, 255, 0)), radial-gradient(ellipse 50% 80% at 80% 50%,rgba(120,119,198,0.15),rgba(255, 255, 255, 0));
+}
+
+.card__light.card__light--horizontal {
+    --max-w: 200px;
+    position: absolute;
+    top: 0;
+    left: 0; /* Left need to animated */
+    width: 0; /* Width need to animated */
+    opacity: 0; /* Opacity need to animated */
+    height: 1px;
+    border-radius: 2px;
+    background-image: linear-gradient(to left, #9d9bf2 0.43%, #7877c6 14.11%, rgba(120, 119, 198,0) 62.95%);
+    animation: showLightHorizontal 2s infinite ease-in-out;
+}
+
+@keyframes showLightHorizontal {
+    0% {
+        width: 0;
+        opacity: 0;
+        left: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+    }
+    
+    100% {
+        left: calc(100% - var(--max-w));
+        width: var(--max-w);
+    }
+}
+
+.card__light.card__light--vertical {
+    --max-h: 150px;
+    position: absolute;
+    top: 0;
+    left: calc(100% - 1px);
+    opacity: 0;
+    width: 1px;
+    height: 0;
+    border-radius: 2px;
+    background-image: linear-gradient(to top, #9d9bf2 0.43%, #7877c6 14.11%, rgba(120, 119, 198,0) 62.95%);
+    animation: showLightVertical 2s infinite ease-in-out;
+    animation-delay: 1.5s;
+}
+
+@keyframes showLightVertical {
+    0% {
+        height: 0;
+        opacity: 0;
+        top: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+    }
+    
+    100% {
+        top: calc(100% - var(--max-h));
+        height: var(--max-h);
+    }
+}
